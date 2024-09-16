@@ -1,0 +1,21 @@
+query Characters($page:Int, $filters:FilterCharacter) {
+    characters(page: $page, filter: $filters) {
+        info {
+            count
+            pages
+            next
+            prev
+        }
+        results {
+             id
+             name
+             location {
+                id
+                name
+             }
+             image
+             status
+             species
+        }
+    }
+}
