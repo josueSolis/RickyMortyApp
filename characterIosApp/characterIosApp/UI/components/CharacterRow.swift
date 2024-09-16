@@ -14,18 +14,20 @@ struct CharacterRow: View {
   let onClick: (CharacterEntity) -> Void
 
   var body: some View {
-      HStack(alignment: .top) {
+      HStack(alignment: .lastTextBaseline) {
         RemoteImage(url: character.image ?? "", placeholder: Image(systemName: "photo"))
           .frame(width: 45, height: 45)
           .clipShape(Circle())
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading) {
           Text(character.name)
             .font(.body)
           Spacer(minLength: 4)
           Text(character.location.name)
             .font(.caption)
-        }
-      }.onTapGesture {
+        } .frame(maxWidth: .infinity, alignment: .leading)
+    }
+      .background()
+      .onTapGesture {
           onClick(character)
       }
       .padding(4)

@@ -41,7 +41,6 @@ struct CharacterCard: View {
       }
       .padding()
     }
-    .background(Color.white)
     .cornerRadius(8)
   }
 }
